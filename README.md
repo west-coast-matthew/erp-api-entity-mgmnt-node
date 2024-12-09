@@ -1,4 +1,4 @@
-![Alt text](images/erp-core-node.png)
+![Project Logo](./images/erp-api-entity-node.png)
 
 # ERP Entity Management API (NodeJS)
 
@@ -12,7 +12,7 @@ As part of the ERP demo application, this project provides API endpoints for ent
 Write operations on these types of objects typically are typically not performed by the average end user, but by a user with an adminitrative role.
 
 ## Building the application
-`npm run start-dev`
+`npm run start-dev` 
 
 ## Enhancement log
 
