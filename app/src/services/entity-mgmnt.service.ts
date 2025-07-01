@@ -1,24 +1,23 @@
-import TankType from 'src/models/tank-type.model';
-import { DICT_ENTITY_TYPES } from '../constants/dict-entity-types.constants';
-import { FORM_FIELD_TYPES } from '../constants/form-field-types.constants';
-import { OperationCodeObjDef } from '../obj-defs/operation-code-obj-def';
-import { TankObjDef } from '../obj-defs/tank-obj-def';
-import { TankStatusObjDef } from '../obj-defs/tank-status-obj-def';
-import { TankTypeObjDef } from '../obj-defs/tank-type-obj-def';
-import { WorkOrderStatusObjDef } from '../obj-defs/work-order-status-obj-def';
-import { FormField } from '../types/form-field.type';
+import TankType from '@/models/tank-type.model';
+import { DICT_ENTITY_TYPES } from '@/constants/dict-entity-types.constants';
+import { FORM_FIELD_TYPES } from '@/constants/form-field-types.constants';
+import { OperationCodeObjDef } from '@/obj-defs/operation-code-obj-def';
+import { TankObjDef } from '@/obj-defs/tank-obj-def';
+import { TankStatusObjDef } from '@/obj-defs/tank-status-obj-def';
+import { TankTypeObjDef } from '@/obj-defs/tank-type-obj-def';
+import { WorkOrderStatusObjDef } from '@/obj-defs/work-order-status-obj-def';
 import { createOperationCode, getOperationCodes, updateOperationCode } from './operation-code.service';
 import { archiveTankStatus, createTankStatus, getTankStatuses, updateTankStatus } from './tank-status.service';
 import { getTankTypes, updateTankType } from './tank-type.service';
 import { archiveTank, createTank, getTanks, updateTank } from './tank.service';
 import { archiveWorkOrderStatus, createWorkOrderStatus, getWorkOrderStatuses, updateWorkOrderStatus } from './work-order-status.service';
-import { archiveTankType, createTankType } from 'src/services/tank-type.service';
-import Tank from 'src/models/tank.model';
-import OperationCode from 'src/models/operation-code.model';
-import TankStatus from 'src/models/tank-status.model';
-import { WorkOrderStatus } from 'src/models/work-order-status.model';
+import { archiveTankType, createTankType } from '@/services/tank-type.service';
+import Tank from '@/models/tank.model';
+import OperationCode from '@/models/operation-code.model';
+import TankStatus from '@/models/tank-status.model';
+import { WorkOrderStatus } from '@/models/work-order-status.model';
 import EntityNotFoundException from '@erp-core/exceptions/entity-not-found.exception';
-import { DictionaryEntity } from 'src/models/dictionary-entity.interface';
+import { DictionaryEntity } from '@/models/dictionary-entity.interface';
 
 /**
  * Entity management service

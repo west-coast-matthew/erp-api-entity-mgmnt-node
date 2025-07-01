@@ -1,5 +1,5 @@
-import TankType from "../models/tank-type.model";
-import WorkOrder from "../models/work-order-model";
+import TankType from "@/models/tank-type.model";
+import WorkOrder from "@/models/work-order-model";
 
 
 export async function getWorkOrders() : Promise<WorkOrder[]>{

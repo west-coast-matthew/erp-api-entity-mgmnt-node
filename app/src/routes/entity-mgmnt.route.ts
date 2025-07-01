@@ -1,12 +1,11 @@
 import { Router, Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
-import { archiveEntity, getEntityListByType, updateEntity } from '../services/entity-mgmnt.service';
+import { archiveEntity, getEntityListByType, updateEntity } from '@/services/entity-mgmnt.service';
 import logger from '@erp-core/logger/logger';
-import { getEnumKeyByValue } from '../utils/misc.utils';
-import { DICT_ENTITY_TYPES } from '../constants/dict-entity-types.constants';
-import TankType from 'src/models/tank-type.model';
-import { DictionaryEntity } from 'src/models/dictionary-entity.interface';
-import {createEntity} from "src/services/entity-mgmnt.service";
+import { getEnumKeyByValue } from '@/utils/misc.utils';
+import { DICT_ENTITY_TYPES } from '@/constants/dict-entity-types.constants';
+import { DictionaryEntity } from '@/models/dictionary-entity.interface';
+import {createEntity} from "@/services/entity-mgmnt.service";
 import InvalidRequestException from '@erp-core/exceptions/invalid-request.exception';
 
 /**

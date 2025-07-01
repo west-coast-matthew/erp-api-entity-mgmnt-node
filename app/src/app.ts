@@ -1,9 +1,7 @@
 import express from 'express';
-
 import helmet from 'helmet';
-
-import router from './routes/index.route';
-import {AppDataSource} from './config/database';
+import router from '@/routes/index.route';
+import {AppDataSource} from '@/config/database';
 
 // todo [ERP-16]: enable security
 //import securityMiddleware from './middleware/security.middleware';

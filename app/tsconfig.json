@@ -19,7 +19,8 @@
     /* Completeness */
     "skipLibCheck": true,                                 /* Skip type checking all .d.ts files. */
     "paths": {
-      "@erp-core/*": ["../../erp-core-node/dist/*"]
+      "@erp-core/*": ["../../erp-core-node/dist/*"],
+      "@/*": ["./src/*"]
     }
   },
   "include": ["src/**/*.ts"],

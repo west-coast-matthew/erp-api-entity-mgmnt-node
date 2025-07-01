@@ -1,4 +1,4 @@
-import Tank from "src/models/tank.model";
+import Tank from "@/models/tank.model";
 import { archiveExistingTank, createNewTank, getAllTanks, updateExistingTank } from "src/repo/tank.repo";
 
 export async function getTanks() : Promise<Tank[]>{

@@ -1,5 +1,5 @@
-import { getAllTankTypes, createNewTankType, updateExistingTankType, archiveExistingTankType } from "src/repo/tank-type.repo";
-import TankType from "../models/tank-type.model";
+import { getAllTankTypes, createNewTankType, updateExistingTankType, archiveExistingTankType } from "@/repo/tank-type.repo";
+import TankType from "@/models/tank-type.model";
 
 export async function getTankTypes() : Promise<TankType[]>{
   return await getAllTankTypes();
