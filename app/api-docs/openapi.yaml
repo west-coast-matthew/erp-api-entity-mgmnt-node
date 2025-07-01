@@ -1,0 +1,121 @@
+openapi: 3.0.3
+info:
+  title: ERP Entity Management API
+  version: 1.0.0
+  description: Used to perform common operations such as viewing and managing entities
+servers:
+  - url: http://localhost/erp-api
+paths:
+  /operationCode:
+      get:
+        summary: List all operation codes
+        responses:
+          '200':
+            description: List all tanks
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Tank'
+                    
+  /tanks:
+    get:
+      summary: List all tanks
+      responses:
+        '200':
+          description: List all tanks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tank'
+    post:
+      summary: Create a new tank
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Tank'  # Reference to a schema definition
+            examples:
+              tankExample:
+                summary: A basic tank
+                value:
+                  name: Sample tank 1
+                  description: Just a basic tank
+      responses:
+        '201':
+          description: New entity created
+          application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tank'
+  /tanks/{id}:
+    get:
+      summary: Get a Tank by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: User found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tank'
+        '404':
+          description: Tank not found
+components:
+  schemas:
+    Tank:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        description:
+          type: string
+          description: Optional description for tank
+    TankType:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        description:
+          type: string
+    TankStatus:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        description:
+          type: string
+    OperationCode:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        description:
+          type: string
+    Work Order Status:
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        description:
+          type: string

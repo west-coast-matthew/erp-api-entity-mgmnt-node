@@ -26,3 +26,8 @@ dist-ssr
 *storybook.log
 storybook-static
 **/.DS_Store
+
+./app/.env
+
+#Let's not store the API documentation, and require the user to generate upon demand
+./app/api-docs/entity-mgmnt-api.html

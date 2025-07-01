@@ -1,0 +1,22 @@
+Tank curl commands:
+
+curl -v 'http://localhost:5176/entity/tank'
+
+curl -v 'http://localhost:5176/entity/operationCode'
+
+curl -v 'http://localhost/entity-mgmnt-api/entity/operationCode'
+
+req props for typeorm support
+     Disable strictPropertyInitialization
+     "experimentalDecorators": true	✅
+    "emitDecoratorMetadata": true	✅
+    import 'reflect-metadata' in entry	✅
+
+
+    for db setup, we need to migrate connection props and models to core project
+    need the associated services and repo objects as well
+
+
+
+starting 
+     yarn dev
