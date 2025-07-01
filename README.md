@@ -1,4 +1,4 @@
-![Project Logo](./images/erp-api-entity-node.png)
+![Project Logo](./app/images/erp-api-entity-node.png)
 
 # ERP Entity Management API (NodeJS)
 
