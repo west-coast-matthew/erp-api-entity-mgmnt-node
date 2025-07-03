@@ -11,7 +11,12 @@ import InvalidRequestException from '@erp-core/exceptions/invalid-request.except
 /**
  * Entity Management API Router
  * 
- * API endpoint used to service requests related to 'generic entity' management operations. Generic entities (sometime referre dot as dictionary data) are entities for which the data seldom, but a requirement for maintenance. Given the CRUD nature of these operations, we provide an dynamic form and this API to service requests in order to facilitate operations through a single generic point, rather than by creating separate UI and API end points for each individual entity.
+ * API endpoint used to service requests related to 'generic entity' management operations. 
+ * Generic entities (sometime referre dot as dictionary data) are entities for which the data 
+ * seldom, but a requirement for maintenance. Given the CRUD nature of these operations, we 
+ * provide an dynamic form and this API to service requests in order to facilitate operations 
+ * through a single generic point, rather than by creating separate UI and API end points for 
+ * each individual entity.
  * 
  */
 
@@ -23,7 +28,8 @@ const router = Router();
  * 
  * TODO: 
  *      - Possibly Enable pagination for better long term support
- *      - Potentially only return minimal display data (id, name, description) and not the entire entity.
+ *      - Potentially only return minimal display data (id, name, description) and not the entire 
+ * entity.
  */
 router.get('/:entityType', async (req: Request, res: Response) => {
     const entityType = req.params.entityType;
@@ -68,16 +74,14 @@ router.post('/:entityType', async (req: Request, res: Response) => {
      * Quick check is performed to confirm that the requested entity is valid.
      */
     if(entityTypeRef==undefined){
-        logger.warn(`Request to list entities for dictionary type '${entityType}' references an invalid type`);
+        logger.warn(`Request to list entities for dictionary type '${entityType}' references an 
+            invalid type`);
        
         throw new InvalidRequestException(`Invalid reference to entity type '${entityType}'`);   
     }
 
     logger.info(`creating new entity`);
 
-    // happy path
-    //const newRef:TankType = req.body;
-    //const newRecord = await createTankType(newRef);
     const newRef = req.body as DictionaryEntity;
     const newRecord = await createEntity(entityTypeRef, newRef);
 
@@ -111,7 +115,8 @@ router.put('/:enityName/:id', async (req: Request, res: Response) => {
      * Quick check is performed to confirm that the requested entity is valid.
      */
     if(entityTypeRef==undefined){
-        logger.warn(`Request to list entities for dictionary type '${entityType}' references an invalid type`);
+        logger.warn(`Request to list entities for dictionary type '${entityType}' references an 
+            invalid type`);
 
         throw new InvalidRequestException(`Invalid reference to entity type '${entityType}'`);   
     }
@@ -125,7 +130,9 @@ router.put('/:enityName/:id', async (req: Request, res: Response) => {
 });
 
 /**
- * Peform an archive operation on an entitity. These types of entities are never delete, however set into an archived state as in most cases there are FK relations involved that would break otherwise.
+ * Peform an archive operation on an entitity. These types of entities are never delete, however 
+ * set into an archived state as in most cases there are FK relations involved that would break 
+ * otherwise.
  */
 router.delete('/:entityName/:id', async (req: Request, res: Response) => {
     
@@ -142,7 +149,8 @@ router.delete('/:entityName/:id', async (req: Request, res: Response) => {
      * Quick check is performed to confirm that the requested entity is valid.
      */
     if(entityTypeRef==undefined){
-        logger.warn(`Request to list entities for dictionary type '${entityType}' references an invalid type`);
+        logger.warn(`Request to list entities for dictionary type '${entityType}' references an 
+            invalid type`);
 
         throw new InvalidRequestException(`Invalid reference to entity type '${entityType}'`);   
     }

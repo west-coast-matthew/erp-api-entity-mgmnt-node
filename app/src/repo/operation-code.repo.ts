@@ -24,7 +24,8 @@ export async function updateExistingOperationCode(updated:OperationCode): Promis
   const existing = await opCodeRepo.findOneBy({id: updated.id});
 
   if(!existing){
-    throw new EntityNotFoundException(`Unable to locate OperationCode (${updated.id}) for update operation.`);
+    throw new EntityNotFoundException(`Unable to locate OperationCode (${updated.id}) for 
+      update operation.`);
   }
 
   // We selectively perform updates to basic attributes

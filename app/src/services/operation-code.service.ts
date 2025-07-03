@@ -1,5 +1,6 @@
 import OperationCode from "src/models/operation-code.model";
-import { archiveExistingOperationCode, createNewOperationCode, getAllOperationCodes, updateExistingOperationCode } from "src/repo/operation-code.repo";
+import { archiveExistingOperationCode, createNewOperationCode, getAllOperationCodes, 
+  updateExistingOperationCode } from "src/repo/operation-code.repo";
 
 export async function getOperationCodes() : Promise<OperationCode[]>{
   return await getAllOperationCodes();

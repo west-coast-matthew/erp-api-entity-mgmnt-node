@@ -6,11 +6,14 @@ import { TankObjDef } from '@/obj-defs/tank-obj-def';
 import { TankStatusObjDef } from '@/obj-defs/tank-status-obj-def';
 import { TankTypeObjDef } from '@/obj-defs/tank-type-obj-def';
 import { WorkOrderStatusObjDef } from '@/obj-defs/work-order-status-obj-def';
-import { createOperationCode, getOperationCodes, updateOperationCode } from './operation-code.service';
-import { archiveTankStatus, createTankStatus, getTankStatuses, updateTankStatus } from './tank-status.service';
+import { createOperationCode, getOperationCodes, updateOperationCode } from 
+'./operation-code.service';
+import { archiveTankStatus, createTankStatus, getTankStatuses, updateTankStatus } 
+from './tank-status.service';
 import { getTankTypes, updateTankType } from './tank-type.service';
 import { archiveTank, createTank, getTanks, updateTank } from './tank.service';
-import { archiveWorkOrderStatus, createWorkOrderStatus, getWorkOrderStatuses, updateWorkOrderStatus } from './work-order-status.service';
+import { archiveWorkOrderStatus, createWorkOrderStatus, getWorkOrderStatuses, 
+    updateWorkOrderStatus } from './work-order-status.service';
 import { archiveTankType, createTankType } from '@/services/tank-type.service';
 import Tank from '@/models/tank.model';
 import OperationCode from '@/models/operation-code.model';
@@ -22,7 +25,8 @@ import { DictionaryEntity } from '@/models/dictionary-entity.interface';
 /**
  * Entity management service
  * 
- * Service responsible for servicing all operations relating to the management of entities, including CRUD operations and introspecting meta data related to dictionary objects.
+ * Service responsible for servicing all operations relating to the management of entities, 
+ * including CRUD operations and introspecting meta data related to dictionary objects.
  * 
  * Action items:
  *  todo [ERP-8]: Enable support for the following dictionary object types
@@ -59,7 +63,9 @@ export const getEntityListByType = async(type: keyof typeof DICT_ENTITY_TYPES) =
 }
 
 /**
- * Retrieve meta information for a given dictionary item type. This will allow the consumer to essentially get information such as attributes, their types, if they are required, etc. An essential task for building dynamic forms.
+ * Retrieve meta information for a given dictionary item type. This will allow the consumer to 
+ * essentially get information such as attributes, their types, if they are required, etc. An 
+ * essential task for building dynamic forms.
  * 
  * @param type 
  * @returns 
@@ -94,7 +100,8 @@ export const createEntity =(type: keyof typeof DICT_ENTITY_TYPES, entity:Diction
         case 'TANK_TYPE':
             return createTankType(entity as TankType);
         default:
-            throw new EntityNotFoundException(`Type '${type}' is not a valid dictionary entity reference`);
+            throw new EntityNotFoundException(`Type '${type}' is not a valid dictionary entity 
+                reference`);
     }
 }
 
@@ -111,7 +118,8 @@ export const updateEntity =(type: keyof typeof DICT_ENTITY_TYPES, entity:Diction
         case 'TANK_TYPE':
             return updateTankType(entity as TankType);
         default:
-            throw new EntityNotFoundException(`Type '${type}' is not a valid dictionary entity reference`);
+            throw new EntityNotFoundException(`Type '${type}' is not a valid dictionary entity 
+                reference`);
     }
 } 
     
@@ -128,7 +136,8 @@ export const archiveEntity =(type: keyof typeof DICT_ENTITY_TYPES, id:number)=>{
         case 'TANK_TYPE':
             return archiveTankType(id);
         default:
-            throw new EntityNotFoundException(`Type '${type}' is not a valid dictionary entity reference`);
+            throw new EntityNotFoundException(`Type '${type}' is not a valid dictionary entity 
+                reference`);
     }
 }
 

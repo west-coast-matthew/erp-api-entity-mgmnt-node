@@ -11,7 +11,8 @@ export async function getAllWorkOrderStatuses(): Promise<WorkOrderStatus[]> {
   return await woStatusRepo.find();
 }
 
-export async function createNewWorkOrderStatus(tankType:WorkOrderStatus): Promise<WorkOrderStatus>{
+export async function createNewWorkOrderStatus(tankType:WorkOrderStatus): 
+Promise<WorkOrderStatus>{
   
   return await woStatusRepo.save(tankType);
 }
@@ -19,13 +20,15 @@ export async function createNewWorkOrderStatus(tankType:WorkOrderStatus): Promis
 /** 
  * Perform a full or partial update on the entity.
  */
-export async function updateExistingWorkOrderStatus(updated:WorkOrderStatus): Promise<WorkOrderStatus>{
+export async function updateExistingWorkOrderStatus(updated:WorkOrderStatus): 
+Promise<WorkOrderStatus>{
   const tankTypeRepo = AppDataSource.getRepository(WorkOrderStatus);
   
   const existing = await woStatusRepo.findOneBy({id: updated.id});
 
   if(!existing){
-    throw new EntityNotFoundException(`Unable to locate WorkOrderStatus (${updated.id}) for update operation.`);
+    throw new EntityNotFoundException(`Unable to locate WorkOrderStatus (${updated.id}) for 
+      update operation.`);
   }
 
   // We selectively perform updates to basic attributes

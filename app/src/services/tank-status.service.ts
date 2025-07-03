@@ -1,5 +1,6 @@
 import TankStatus from "@/models/tank-status.model";
-import { archiveExistingTankStatus, createNewTankStatus, getAllTankStatuses, updateExistingTankStatus } from "@/repo/tank-status.repo";
+import { archiveExistingTankStatus, createNewTankStatus, getAllTankStatuses, 
+  updateExistingTankStatus } from "@/repo/tank-status.repo";
 
 
 export async function getTankStatuses() : Promise<TankStatus[]>{

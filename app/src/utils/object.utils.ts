@@ -1,5 +1,6 @@
 /**
- * Utility method used to update an objects basic attributes (primative, non-collection or timestamp related fields) based on another.
+ * Utility method used to update an objects basic attributes (primative, non-collection or 
+ * timestamp related fields) based on another.
  * 
  */
 export function updateModelBasicAttributes<T extends object, U extends object>(

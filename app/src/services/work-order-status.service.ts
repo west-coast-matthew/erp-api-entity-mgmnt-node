@@ -1,5 +1,6 @@
 
-import { getAllWorkOrderStatuses, createNewWorkOrderStatus, archiveExistingWorkOrderStatus, updateExistingWorkOrderStatus } from "src/repo/work-order-status.repo";
+import { getAllWorkOrderStatuses, createNewWorkOrderStatus, archiveExistingWorkOrderStatus, 
+  updateExistingWorkOrderStatus } from "src/repo/work-order-status.repo";
 import { WorkOrderStatus } from "src/models/work-order-status.model";
 
 export async function getWorkOrderStatuses() : Promise<WorkOrderStatus[]>{

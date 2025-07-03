@@ -24,7 +24,8 @@ export async function updateExistingTankStatus(updated:TankStatus): Promise<Tank
   const existing = await tankStatusRepo.findOneBy({id: updated.id});
 
   if(!existing){
-    throw new EntityNotFoundException(`Unable to locate TankStatus (${updated.id}) for update operation.`);
+    throw new EntityNotFoundException(`Unable to locate TankStatus (${updated.id}) for 
+      update operation.`);
   }
 
   // We selectively perform updates to basic attributes

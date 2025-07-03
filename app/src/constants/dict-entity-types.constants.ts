@@ -1,5 +1,6 @@
 /**
- * Defines all 'types' for dictionary entities. This is required in order to support functions related to dynamic form management.
+ * Defines all 'types' for dictionary entities. This is required in order to support 
+ * functions related to dynamic form management.
  */
 export enum DICT_ENTITY_TYPES{
     TANK = "tank",

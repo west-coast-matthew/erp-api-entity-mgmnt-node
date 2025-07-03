@@ -18,6 +18,7 @@ AppDataSource.initialize()
 
 app.use(helmet());
 app.use(express.json());
+// todo [ERP-16]: enable security
 //app.use(securityMiddleware);
 app.use('/', router);
 
