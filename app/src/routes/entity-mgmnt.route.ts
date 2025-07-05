@@ -3,7 +3,7 @@ import { StatusCodes } from 'http-status-codes';
 import { archiveEntity, getEntityListByType, updateEntity } from '@/services/entity-mgmnt.service';
 import logger from '@erp-core/logger/logger';
 import { getEnumKeyByValue } from '@/utils/misc.utils';
-import { DICT_ENTITY_TYPES } from '@/constants/dict-entity-types.constants';
+import { DICT_ENTITY_TYPES } from '@erp-core/constants/dict-entity-types.constants'
 import { DictionaryEntity } from '@/models/dictionary-entity.interface';
 import {createEntity} from "@/services/entity-mgmnt.service";
 import InvalidRequestException from '@erp-core/exceptions/invalid-request.exception';
@@ -33,7 +33,7 @@ const router = Router();
  */
 router.get('/:entityType', async (req: Request, res: Response) => {
     const entityType = req.params.entityType;
-    logger.info(`servicing (list) request for '${entityType}' entity`);
+    logger.info(`Entity mgmnt API: servicing (list) request for '${entityType}' entity`);
     
     const entityTypeRef = getEnumKeyByValue(DICT_ENTITY_TYPES, entityType);
     
@@ -41,16 +41,17 @@ router.get('/:entityType', async (req: Request, res: Response) => {
      * Quick check is performed to confirm that the requested entity is valid.
      */
     if(entityTypeRef==undefined){
-        logger.warn(`Request to list entities for dictionary type '${entityType}' references an 
+        logger.warn(`Entity mgmnt API: Request to list entities for dictionary type '${entityType}' references an 
             invalid type`);
 
         throw new InvalidRequestException(`Invalid reference to entity type '${entityType}'`);   
     }
 
-    logger.info(`Request for entity listing '${entityType}' references valid dictionary type`);
+    logger.info(`Entity mgmnt API: Request for entity listing '${entityType}' references valid dictionary type`);
 
     const listings = await getEntityListByType(entityTypeRef);
     console.log('entity listings', listings);
+    logger.info(`Entity mgmnt API: returning ${listings.length} records for entity type '${entityType}'`);
     res.set('Content-Type', 'application/json')
     res.send(listings);
     res.end();

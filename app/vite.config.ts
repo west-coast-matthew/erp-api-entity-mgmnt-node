@@ -6,7 +6,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [
-    react(),             // Omit if not using React
+    //react(),             // Omit if not using React
     //tsconfigPaths(),     // Optional: resolves tsconfig path aliases
   ],
   test: {

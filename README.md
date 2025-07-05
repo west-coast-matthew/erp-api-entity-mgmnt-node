@@ -44,8 +44,6 @@ may be used to validate successfull deployment.
 List all tanks
 `curl -v 'http://localhost/entity-mgmnt' `
 
-List all operation codes
-``
 
 ## Enhancement log
 

@@ -1,5 +1,5 @@
 import TankType from '@/models/tank-type.model';
-import { DICT_ENTITY_TYPES } from '@/constants/dict-entity-types.constants';
+import { DICT_ENTITY_TYPES } from '@erp-core/constants/dict-entity-types.constants'
 import { FORM_FIELD_TYPES } from '@/constants/form-field-types.constants';
 import { OperationCodeObjDef } from '@/obj-defs/operation-code-obj-def';
 import { TankObjDef } from '@/obj-defs/tank-obj-def';

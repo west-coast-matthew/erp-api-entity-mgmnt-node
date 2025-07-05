@@ -6,7 +6,8 @@
   "scripts": {
     "test": "vitest",
     "test-watch": "vitest --watch",
-    "dev": "ts-node --project tsconfig.json -r tsconfig-paths/register ./src/app.ts",
+    "dev": "NODE_ENV='development' nodemon ./src/app.ts",
+    "debug": "ts-node-dev --respawn --inspect src/app.ts",
     "build": "npx tsc",
     "gen-docs": "npx redoc-cli bundle api-docs/openapi.yaml -o api-docs/entity-mgmnt-api.html"
   },
@@ -14,7 +15,7 @@
   "description": "API support for entity management operations",
   "dependencies": {
     "@vitejs/plugin-react": "^4.6.0",
-    "@west-coast-matthew/erp-core-node": "file:../../erp-core-node/",
+    "@west-coast-matthew/erp-core-node": "file:../../erp-core-node",
     "express": "^5.1.0",
     "helmet": "^8.1.0",
     "http-status-codes": "^2.3.0",
@@ -27,7 +28,7 @@
     "@types/express": "^4.17.20",
     "@types/jest": "^29.5.13",
     "@types/morgan": "^1.9.9",
-    "@types/node": "^22.7.5",
+    "@types/node": "^24.0.10",
     "@types/supertest": "^6.0.2",
     "@typescript-eslint/eslint-plugin": "^7.16.1",
     "@typescript-eslint/parser": "^7.16.1",
@@ -41,7 +42,9 @@
     "supertest": "^7.0.0",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^5.8.3",
     "vitest": "^3.2.4"
-  }
+  },
+  "type": "module"
 }
