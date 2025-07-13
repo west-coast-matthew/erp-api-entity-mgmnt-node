@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express';
-import { StatusCodes } from 'http-status-codes';
+//import { StatusCodes } from 'http-status-codes';
 import { archiveEntity, getEntityListByType, updateEntity } from '@/services/entity-mgmnt.service';
 import logger from '@erp-core/logger/logger';
 import { getEnumKeyByValue } from '@/utils/misc.utils';
@@ -7,6 +7,7 @@ import { DICT_ENTITY_TYPES } from '@erp-core/constants/dict-entity-types.constan
 import { DictionaryEntity } from '@/models/dictionary-entity.interface';
 import {createEntity} from "@/services/entity-mgmnt.service";
 import InvalidRequestException from '@erp-core/exceptions/invalid-request.exception';
+import { HTTP_STATUS_CODE_OK } from '@erp-core/constants/http-status-codes.constants';
 
 /**
  * Entity Management API Router
@@ -125,7 +126,7 @@ router.put('/:enityName/:id', async (req: Request, res: Response) => {
     const newRef = req.body as DictionaryEntity;
     const newRecord = await updateEntity(entityTypeRef, newRef);
 
-    res.status(StatusCodes.OK);
+    res.status(HTTP_STATUS_CODE_OK);
     res.set('Content-Type', 'application/json')
     res.end();
 });
