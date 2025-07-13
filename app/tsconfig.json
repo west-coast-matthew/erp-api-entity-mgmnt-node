@@ -22,9 +22,13 @@
     "skipLibCheck": true,                                 /* Skip type checking all .d.ts files. */
     "paths": {
       "@erp-core/*": ["../../erp-core-node/dist/*"],
+      "@routes/*": ["./src/routes/*"],
       "@/*": ["./src/*"]
     },
     "types": ["node", "express"],  
+    "experimentalDecorators": true, // Req for type orm
+    "emitDecoratorMetadata": true, // Req for type orm
+    "strictPropertyInitialization": false, // Req for type orm
   },
   "ts-node": { // For running with ts-node
     "require": ["tsconfig-paths/register"]

@@ -15,7 +15,6 @@
   "author": "",
   "description": "API support for entity management operations",
   "dependencies": {
-    "@vitejs/plugin-react": "^4.6.0",
     "@west-coast-matthew/erp-core-node": "file:../../erp-core-node",
     "express": "4.18.2",
     "helmet": "^8.1.0",
