@@ -1,8 +1,8 @@
 import { UpdateResult } from "typeorm";
-import { AppDataSource } from "../config/database";
+import { AppDataSource } from "../config/db";
 import TankType from "../models/tank-type.model";
-import EntityNotFoundException from '@erp-core/exceptions/entity-not-found.exception';
-import { updateModelBasicAttributes } from "src/utils/object.utils";
+import EntityNotFoundException from '@west-coast-matthew/erp-core-node';
+import {EntityNotFoundException} from '@west-coast-matthew/erp-core-node';
 
 export async function getAllTankTypes(): Promise<TankType[]> {
   const tankTypeRepo = AppDataSource.getRepository(TankType);

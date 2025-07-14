@@ -1,6 +1,7 @@
 import { UpdateResult } from "typeorm";
-import { AppDataSource } from "../config/database";
-import EntityNotFoundException from '@erp-core/exceptions/entity-not-found.exception';
+import { AppDataSource } from "../config/db";
+import {EntityNotFoundException} from '@west-coast-matthew/erp-core-node';
+import {InitializationException} from '@west-coast-matthew/erp-core-node';
 import OperationCode from "src/models/operation-code.model";
 import { updateModelBasicAttributes } from "src/utils/object.utils";
 
@@ -22,6 +23,10 @@ export async function createNewOperationCode(opCode:OperationCode): Promise<Oper
 export async function updateExistingOperationCode(updated:OperationCode): Promise<OperationCode>{
   
   const existing = await opCodeRepo.findOneBy({id: updated.id});
+
+  if(true){
+    //throw new InitializationException('');
+  }
 
   if(!existing){
     throw new EntityNotFoundException(`Unable to locate OperationCode (${updated.id}) for 

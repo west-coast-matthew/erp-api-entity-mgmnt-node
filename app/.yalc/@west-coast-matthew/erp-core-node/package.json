@@ -1,0 +1,60 @@
+{
+  "name": "@west-coast-matthew/erp-core-node",
+  "version": "0.1.13",
+  "license": "Apache-2.0",
+  "description": "## Description This project storescore logic cusch as constants and entities used in my simulated manufacturing projects. These entities are centralized as they are common across several microservices.",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "test-watch": "jest --watch",
+    "test-coverage": "jest --coverage",
+    "test-coverage-html": "jest --coverage --coverageReporters=html",
+    "build": "tsup",
+    "lint": "eslint . --ext .ts,.tsx",
+    "publish": "npm publish --access public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:west-coast-matthew/erp-core-node.git"
+  },
+  "keywords": [],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/thirdgear209/erp-core-node/issues"
+  },
+  "homepage": "https://github.com/thirdgear209/erp-core-node#readme",
+  "dependencies": {
+    "@types/jest": "^30.0.0",
+    "dotenv": "^17.1.0",
+    "express": "4.18.2",
+    "jest": "^30.0.4",
+    "mariadb": "^3.4.4",
+    "module-alias": "^2.2.3",
+    "mysql": "^2.18.1",
+    "reflect-metadata": "^0.2.2",
+    "rimraf": "^6.0.1",
+    "ts-jest": "^29.4.0",
+    "tsup": "^8.5.0",
+    "typeorm": "^0.3.25",
+    "winston": "^3.17.0"
+  },
+  "publishConfig": {
+    "registry": ""
+  },
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "peerDependencies": {
+    "express": "^4.18.2"
+  },
+  "yalcSig": "dc7a3cd008fc48d185f80a0165ba3957"
+}

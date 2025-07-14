@@ -1,15 +1,14 @@
-//import 'module-alias/register';
-//import express, { ErrorRequestHandler, Express } from 'express';
+import "reflect-metadata";
 import express  from 'express';
 import helmet from 'helmet';
-//import router from '@routes/index.route';
-import {createDataSource} from '@west-coast-matthew/erp-core-node';
-import {errorHandlerMiddleware} from '@west-coast-matthew/erp-core-node';
+import router from '@routes/index.route';
+//import {createDataSource} from '@west-coast-matthew/erp-core-node';
+//import {errorHandlerMiddleware} from '@west-coast-matthew/erp-core-node';
 import {InitializationException} from '@west-coast-matthew/erp-core-node';
-import dotenv from 'dotenv';
+import dotenv from 'dotenv-esm';
 import _  from 'lodash';
 
-import "reflect-metadata";
+import { AppDataSource } from './config/db';
 
 // todo [ERP-16]: enable security
 //import securityMiddleware from './middleware/security.middleware';
@@ -41,37 +40,28 @@ const validatePropsPresent = (reqProps:string[])=>{
 
 const reqEnvProps = ['DB_HOST','DB_PORT','DB_USERNAME','DB_PASSWORD'];
 
+console.log(`config: `, process.env.DB_HOST);
+console.log(`config: `, process.env.DB_USERNAME);
+console.log(`config: `, process.env.DB_PASSWORD);
+console.log(`config: port`, process.env.DB_PORT);
+
 validatePropsPresent(reqEnvProps);
 
-const dataSource = createDataSource({
-  type: 'mariadb',
-  host: process.env.DB_HOST || '',
-  port: process.env.DB_PORT? Number(process.env.DB_PORT) :  -1,
-  username: process.env.DB_USERNAME || '',
-  password: process.env.DB_PASSWORD || '',
-  database: 'erp',
-  synchronize: false,
-  entities: []
-});
-
-if(dataSource){
-  dataSource.initialize()
+AppDataSource.initialize()
   .then(() => {
-    console.log('Data Source has been initialized and schema synced.');
+    console.log('Data Source Initialized');
+    // You can now use repositories, etc.
   })
   .catch((err:Error) => {
-    console.error('Error during Data Source initialization:', err);
+    console.error('Data Source Initialization Error', err);
+    throw new InitializationException(`Unable to initialize data source`);
   });
-}
-else{
-  throw new InitializationException(`Unable to initialize data source`);
-}
 
 app.use(helmet());
 app.use(express.json());
 // todo [ERP-16]: enable security
 //app.use(securityMiddleware);
-//app.use('/', router);
+app.use('/', router);
 
 
 //app.use((_err: Error, _req: Request, _res: Response, _next: NextFunction) => {
@@ -81,7 +71,6 @@ app.use(express.json());
 //app.use(errorHandlerMiddleware);
 
 const port = process.env.PORT || 5176;
-
 
 app.listen(port, () => {
   console.log(`API Server (entity mgmnt) is running on http://localhost:${port}`);

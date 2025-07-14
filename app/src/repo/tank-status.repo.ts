@@ -1,8 +1,8 @@
 import { UpdateResult } from "typeorm";
-import { AppDataSource } from "../config/database";
+import { AppDataSource } from "../config/db";
 import TankStatus from "src/models/tank-status.model";
 import { updateModelBasicAttributes } from "src/utils/object.utils";
-import EntityNotFoundException from '@erp-core/exceptions/entity-not-found.exception';
+import {EntityNotFoundException} from '@west-coast-matthew/erp-core-node';
 
 const tankStatusRepo = AppDataSource.getRepository(TankStatus);
 

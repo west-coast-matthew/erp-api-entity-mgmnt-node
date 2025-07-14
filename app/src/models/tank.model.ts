@@ -8,11 +8,12 @@ export default class Tank implements DictionaryEntity{
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({ name: "name",nullable: false, length:25 })
+   @Column({ type:"varchar", name: "name",nullable: false, length:25 })
     name: string;
 
-    @Column({ name: "description", nullable: true, length:100 })
+    @Column({ type:"varchar",name: "description", nullable: true, length:100 })
     description?: string;
+
 
     @CreateDateColumn({ type: "timestamp", default: () => "CURRENT_TIMESTAMP(6)" })
     public created_at?: Date;

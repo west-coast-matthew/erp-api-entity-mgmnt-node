@@ -1,5 +1,5 @@
 import TankType from '@/models/tank-type.model';
-import { DICT_ENTITY_TYPES } from '@erp-core/constants/dict-entity-types.constants'
+import { DICT_ENTITY_TYPES } from '@west-coast-matthew/erp-core-node'
 import { FORM_FIELD_TYPES } from '@/constants/form-field-types.constants';
 import { OperationCodeObjDef } from '@/obj-defs/operation-code-obj-def';
 import { TankObjDef } from '@/obj-defs/tank-obj-def';
@@ -19,7 +19,7 @@ import Tank from '@/models/tank.model';
 import OperationCode from '@/models/operation-code.model';
 import TankStatus from '@/models/tank-status.model';
 import { WorkOrderStatus } from '@/models/work-order-status.model';
-import EntityNotFoundException from '@erp-core/exceptions/entity-not-found.exception';
+import {EntityNotFoundException} from '@west-coast-matthew/erp-core-node';
 import { DictionaryEntity } from '@/models/dictionary-entity.interface';
 
 /**

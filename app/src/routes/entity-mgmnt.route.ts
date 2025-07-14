@@ -1,13 +1,13 @@
 import { Router, Request, Response } from 'express';
 //import { StatusCodes } from 'http-status-codes';
 import { archiveEntity, getEntityListByType, updateEntity } from '@/services/entity-mgmnt.service';
-import logger from '@erp-core/logger/logger';
+import {logger} from '@west-coast-matthew/erp-core-node';
 import { getEnumKeyByValue } from '@/utils/misc.utils';
-import { DICT_ENTITY_TYPES } from '@erp-core/constants/dict-entity-types.constants'
+import { DICT_ENTITY_TYPES } from '@west-coast-matthew/erp-core-node'
 import { DictionaryEntity } from '@/models/dictionary-entity.interface';
 import {createEntity} from "@/services/entity-mgmnt.service";
-import InvalidRequestException from '@erp-core/exceptions/invalid-request.exception';
-import { HTTP_STATUS_CODE_OK } from '@erp-core/constants/http-status-codes.constants';
+import {InvalidRequestException} from '@west-coast-matthew/erp-core-node';
+import { HTTP_STATUS_CODE_OK } from '@west-coast-matthew/erp-core-node';
 
 /**
  * Entity Management API Router

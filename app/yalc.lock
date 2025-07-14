@@ -1,0 +1,8 @@
+{
+  "version": "v1",
+  "packages": {
+    "@west-coast-matthew/erp-core-node": {
+      "signature": "dc7a3cd008fc48d185f80a0165ba3957"
+    }
+  }
+}
